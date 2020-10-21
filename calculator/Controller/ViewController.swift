@@ -8,11 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    //restrict number of characters that can be entered and on screen
-  
-    //handle optionals better
-    //implement . button (adding decimal places)
+
     
     enum Operation: String {
         case add = "+"
@@ -44,9 +40,6 @@ class ViewController: UIViewController {
         displayResult(myResult: result)
     }
     
-    @IBAction func percentagePressed(_ sender: UIButton) {
-
-    }
     
     @IBAction func numberPressed(_ sender: UIButton) {
         if let title = sender.currentTitle {
@@ -57,17 +50,16 @@ class ViewController: UIViewController {
                     resultString += title
                 }
                 resultLabel.text = resultString
-                result = Double(resultString)!
+                if resultString != "" {result = Double(resultString)!}
             } else {
                 if secondNumber == 0.0 {
                     secondNumberString = title
                 } else {
                     secondNumberString += title
                 }
+                
                 resultLabel.text = secondNumberString
-//                secondNumberString = resultString
-                secondNumber = Double(secondNumberString)!
-//                secondNumberString = resultString
+                if secondNumberString != "" {secondNumber = Double(secondNumberString)!}
             }
         }
     }
@@ -108,12 +100,10 @@ class ViewController: UIViewController {
             if !resultString.contains(".") {
                 resultString += "."
                 resultLabel.text = resultString
-                //result = Double(resultString)
             }
         } else {
             secondNumberString += "."
             resultLabel.text = secondNumberString
-            //secondNumber = Double(secondNumberString)
         }
     }
     
@@ -174,7 +164,7 @@ class ViewController: UIViewController {
             resultLabel.text = String(Int(myResult))
         }
         else {
-            resultLabel.text = String(myResult)
+            resultLabel.text = String(format:"%.2f", myResult)
         }
     }
     
