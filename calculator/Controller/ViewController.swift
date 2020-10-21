@@ -101,6 +101,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func addDecimal(_ sender: UIButton) {
+        if !isCalculating {
+            resultString = resultLabel.text!
+            if !resultString.contains(".") {
+                resultString += "."
+                resultLabel.text = resultString
+                //result = Double(resultString)
+            }
+        } else {
+            secondNumberString += "."
+            resultLabel.text = secondNumberString
+            //secondNumber = Double(secondNumberString)
+        }
 //        if !String(result).contains(".") {
 //            resultString += "."
 //            resultLabel.text = resultString
