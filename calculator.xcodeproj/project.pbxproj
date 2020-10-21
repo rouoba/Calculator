@@ -16,7 +16,6 @@
 		A7123E9A253E447F0095C63B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7123E98253E447F0095C63B /* LaunchScreen.storyboard */; };
 		A7123EA5253E447F0095C63B /* calculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7123EA4253E447F0095C63B /* calculatorTests.swift */; };
 		A7123EB0253E44800095C63B /* calculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7123EAF253E44800095C63B /* calculatorUITests.swift */; };
-		A7123ED0253E6ADE0095C63B /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7123ECF253E6ADE0095C63B /* Operation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		A7123EAB253E44800095C63B /* calculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = calculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7123EAF253E44800095C63B /* calculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorUITests.swift; sourceTree = "<group>"; };
 		A7123EB1253E44800095C63B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7123ECF253E6ADE0095C63B /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				A7123EC8253E44BF0095C63B /* Utilities */,
-				A7123ED4253E6AE30095C63B /* Model */,
 				A7123EC7253E44A90095C63B /* View */,
 				A7123EC3253E449F0095C63B /* Controller */,
 				A7123E9B253E447F0095C63B /* Info.plist */,
@@ -156,14 +153,6 @@
 				A7123E8C253E447C0095C63B /* SceneDelegate.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		A7123ED4253E6AE30095C63B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				A7123ECF253E6ADE0095C63B /* Operation.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,7 +288,6 @@
 				A7123E8F253E447C0095C63B /* ViewController.swift in Sources */,
 				A7123E95253E447C0095C63B /* calculator.xcdatamodeld in Sources */,
 				A7123E8B253E447C0095C63B /* AppDelegate.swift in Sources */,
-				A7123ED0253E6ADE0095C63B /* Operation.swift in Sources */,
 				A7123E8D253E447C0095C63B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
