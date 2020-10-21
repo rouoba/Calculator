@@ -10,8 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     //restrict number of characters that can be entered and on screen
-    //work the percentage handling - OK
-    //work the display of integers that don't have a decimal point - OK
+  
     //handle optionals better
     //implement . button (adding decimal places)
     
@@ -25,7 +24,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
     var result = 0.0
+    var resultString = ""
     var secondNumber = 0.0
+    var secondNumberString = ""
     var isCalculating = false
     var operation = Operation.noOperation
     
@@ -40,38 +41,31 @@ class ViewController: UIViewController {
     
     @IBAction func changeSignPressed(_ sender: UIButton) {
         result *= (-1.0)
-        resultLabel.text = String(result)
+        displayResult(myResult: result)
     }
     
     @IBAction func percentagePressed(_ sender: UIButton) {
-//        if resultLabel.text != "" {
-//            if numberOnScreen == "result" {
-//                result /= 100
-//                resultLabel.text = String(result)
-//            } else if numberOnScreen == "secondNumber" {
-//                secondNumber /= 100
-//                resultLabel.text = String(secondNumber)
-//            }
-//        }
+
     }
     
     @IBAction func numberPressed(_ sender: UIButton) {
         if let title = sender.currentTitle {
             if !isCalculating {
                 if result == 0.0 {
-                    resultLabel.text = title
+                    resultString = title
                 } else {
-                    resultLabel.text! += title
+                    resultString += title
                 }
-
-                result = Double(resultLabel.text!)!
+                resultLabel.text = resultString
+                result = Double(resultString)!
             } else {
                 if secondNumber == 0.0 {
-                    resultLabel.text = title
+                    resultString = title
                 } else {
-                    resultLabel.text! += title
+                    resultString += title
                 }
-                secondNumber = Double(resultLabel.text!)!
+                resultLabel.text = resultString
+                secondNumber = Double(resultString)!
             }
         }
     }
@@ -105,6 +99,15 @@ class ViewController: UIViewController {
             secondNumber = 0.0
         }
     }
+    
+    @IBAction func addDecimal(_ sender: UIButton) {
+//        if !String(result).contains(".") {
+//            resultString += "."
+//            resultLabel.text = resultString
+//            result = Double(resultString)!
+//        }
+    }
+    
     
     @IBAction func equalPressed(_ sender: UIButton) {
         if isCalculating {
