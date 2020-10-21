@@ -10,8 +10,8 @@ import UIKit
 class ViewController: UIViewController {
     
     //restrict number of characters that can be entered and on screen
-    //work the percentage handling
-    //work the display of integers that don't have a decimal point
+    //work the percentage handling - OK
+    //work the display of integers that don't have a decimal point - OK
     //handle optionals better
     //implement . button (adding decimal places)
     
@@ -45,15 +45,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func percentagePressed(_ sender: UIButton) {
-        if resultLabel.text != "" {
-            if numberOnScreen == "result" {
-                result /= 100
-                resultLabel.text = String(result)
-            } else if numberOnScreen == "secondNumber" {
-                secondNumber /= 100
-                resultLabel.text = String(secondNumber)
-            }
-        }
+//        if resultLabel.text != "" {
+//            if numberOnScreen == "result" {
+//                result /= 100
+//                resultLabel.text = String(result)
+//            } else if numberOnScreen == "secondNumber" {
+//                secondNumber /= 100
+//                resultLabel.text = String(secondNumber)
+//            }
+//        }
     }
     
     @IBAction func numberPressed(_ sender: UIButton) {
@@ -65,12 +65,7 @@ class ViewController: UIViewController {
                 } else {
                     resultLabel.text! += title
                 }
-//                if resultLabel.text!.contains(".") {
-//                    result = Double(resultLabel.text!)!
-//                } else {
-//                    result = 20 * result
-//                    result = Int(resultLabel.text!)
-//                }
+
                 result = Double(resultLabel.text!)!
             } else {
                 numberOnScreen = "secondNumber"
@@ -94,8 +89,8 @@ class ViewController: UIViewController {
         if let operationChosen = sender.currentTitle {
             numberOnScreen = "result"
             result = calculate(num1: result, num2: secondNumber, operation: operation.rawValue)
-            //if result is Int, take out decimal point before display
-            resultLabel.text = String(result)
+            
+            displayResult(myResult: result)
             
             switch operationChosen {
             case "+":
@@ -134,8 +129,9 @@ class ViewController: UIViewController {
             default:
                 return
             }
-            //if result is String, take out decimal point
-            resultLabel.text = String(result)
+            
+            displayResult(myResult: result)
+            
             isCalculating = false
             operation = Operation.noOperation
         }
@@ -162,6 +158,15 @@ class ViewController: UIViewController {
             result /= num2
         }
         return result
+    }
+    
+    func displayResult(myResult: Double) {
+        if String(myResult).contains(".0") {
+            resultLabel.text = String(Int(myResult))
+        }
+        else {
+            resultLabel.text = String(myResult)
+        }
     }
     
 }
