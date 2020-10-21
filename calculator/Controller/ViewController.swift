@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     var result = 0.0
     var secondNumber = 0.0
-    var numberOnScreen = ""
     var isCalculating = false
     var operation = Operation.noOperation
     
@@ -57,9 +56,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func numberPressed(_ sender: UIButton) {
-        if let title = sender.currentTitle, String(result).count <= 10 {
+        if let title = sender.currentTitle {
             if !isCalculating {
-                numberOnScreen = "result"
                 if result == 0.0 {
                     resultLabel.text = title
                 } else {
@@ -68,7 +66,6 @@ class ViewController: UIViewController {
 
                 result = Double(resultLabel.text!)!
             } else {
-                numberOnScreen = "secondNumber"
                 if secondNumber == 0.0 {
                     resultLabel.text = title
                 } else {
@@ -87,7 +84,6 @@ class ViewController: UIViewController {
         isCalculating = true
         
         if let operationChosen = sender.currentTitle {
-            numberOnScreen = "result"
             result = calculate(num1: result, num2: secondNumber, operation: operation.rawValue)
             
             displayResult(myResult: result)
@@ -140,7 +136,6 @@ class ViewController: UIViewController {
     func resetAll() {
         result = 0.0
         secondNumber = 0.0
-        numberOnScreen = ""
         isCalculating = false
         operation = Operation.noOperation
         resultLabel.text = "0"
