@@ -60,12 +60,14 @@ class ViewController: UIViewController {
                 result = Double(resultString)!
             } else {
                 if secondNumber == 0.0 {
-                    resultString = title
+                    secondNumberString = title
                 } else {
-                    resultString += title
+                    secondNumberString += title
                 }
-                resultLabel.text = resultString
-                secondNumber = Double(resultString)!
+                resultLabel.text = secondNumberString
+//                secondNumberString = resultString
+                secondNumber = Double(secondNumberString)!
+//                secondNumberString = resultString
             }
         }
     }
@@ -113,11 +115,6 @@ class ViewController: UIViewController {
             resultLabel.text = secondNumberString
             //secondNumber = Double(secondNumberString)
         }
-//        if !String(result).contains(".") {
-//            resultString += "."
-//            resultLabel.text = resultString
-//            result = Double(resultString)!
-//        }
     }
     
     
@@ -150,7 +147,9 @@ class ViewController: UIViewController {
     
     func resetAll() {
         result = 0.0
+        resultString = ""
         secondNumber = 0.0
+        secondNumberString = ""
         isCalculating = false
         operation = Operation.noOperation
         resultLabel.text = "0"
