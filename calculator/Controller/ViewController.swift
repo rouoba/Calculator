@@ -44,22 +44,26 @@ class ViewController: UIViewController {
     @IBAction func numberPressed(_ sender: UIButton) {
         if let title = sender.currentTitle {
             if !isCalculating {
-                if result == 0.0 {
-                    resultString = title
-                } else {
-                    resultString += title
+                if resultLabel.text?.count != 9 {
+                    if result == 0.0 {
+                        resultString = title
+                    } else {
+                        resultString += title
+                    }
+                    resultLabel.text = resultString
+                    if resultString != "" {result = Double(resultString)!}
                 }
-                resultLabel.text = resultString
-                if resultString != "" {result = Double(resultString)!}
             } else {
-                if secondNumber == 0.0 {
-                    secondNumberString = title
-                } else {
-                    secondNumberString += title
+                if resultLabel.text?.count != 9 {
+                    if secondNumber == 0.0 {
+                        secondNumberString = title
+                    } else {
+                        secondNumberString += title
+                    }
+                    
+                    resultLabel.text = secondNumberString
+                    if secondNumberString != "" {secondNumber = Double(secondNumberString)!}
                 }
-                
-                resultLabel.text = secondNumberString
-                if secondNumberString != "" {secondNumber = Double(secondNumberString)!}
             }
         }
     }
@@ -164,7 +168,9 @@ class ViewController: UIViewController {
             resultLabel.text = String(Int(myResult))
         }
         else {
-            resultLabel.text = String(format:"%.2f", myResult)
+            if String(result).count != 9 {
+                resultLabel.text = String(format:"%.2f", myResult)
+            }
         }
     }
     
